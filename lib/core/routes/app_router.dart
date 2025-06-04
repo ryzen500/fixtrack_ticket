@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fixtrack_ticket/presentation/pages/login_page.dart';
-import 'package:fixtrack_ticket/presentation/pages/dashboard_page.dart';
+import 'package:fixtrack_ticket/presentation/pages/ticket_page.dart';
 import 'package:fixtrack_ticket/core/middleware/auth_guard.dart';
 import 'package:fixtrack_ticket/presentation/pages/main_navigation.dart';
 
@@ -14,6 +14,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const AuthGuard(child: MainNavigation()),
         );
+      case '/tickets':
+        // Pastikan juga halaman tiket ini perlu proteksi auth?
+        return MaterialPageRoute(
+          builder: (_) => const AuthGuard(child: TicketPage()),
+        );
+
       default:
         return MaterialPageRoute(
             builder: (_) => const Scaffold(
